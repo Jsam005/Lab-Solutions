@@ -1,16 +1,18 @@
 import random
 import time
 
-print('***** WELCOME TO HANGMAN *****')
+print('\n********************************')
+print('\n       WELCOME TO HANGMAN      ')
+print('\n********************************')
 time.sleep(2)
 
-print('\nHere are the rules:')
+print('\nHERE ARE THE RULES:')
 time.sleep(2)
 
-print('*A word will be chosen at random. You have a maximum of 6 incorrect guesses before your character is hanged from the gallows.')
+print('***A word will be chosen at random. You have a maximum of 6 incorrect guesses before your character is hanged from the gallows.')
 time.sleep(5)
 
-print('\nTRY TO SAVE HIM...GOOD LUCK!')
+print('\nTRY TO SAVE HIM...GOOD LUCK!\n')
 
 
 hang_board = ['''
@@ -62,16 +64,14 @@ words = 'cat dog run hit sit sea moon sun here cool pool bee see fox box eyes he
         'florists scientist astronauts astronomy creature tequila galaxies irrelevant australia madagascar'.upper().split()
 
 random.shuffle(words)
+secret_word = words.pop()
 
 correct_letters = []
 incorrect_letters = []
-secret_word = words.pop()
 
-def rand_word():
-    pass
 
 def display_board():
-    # shows the gallows, displays the secret word as '_' and will print the letters guessed incorrectly
+    # shows the gallows, displays the secret word as '_' and prints the letters guessed incorrectly
     blanks = '_' * len(secret_word)
 
     for i in secret_word:
@@ -120,8 +120,6 @@ def check_win():
 
 def main():
 
-    # rand_word()
-
     while True:
 
         display_board()
@@ -129,12 +127,16 @@ def main():
         is_winner = check_win()
 
         if is_winner is 'loser':
-            print("***** GAME OVER!!! YOU'VE HANGED HIM, SHAME ON YOU! ***** The secret word was {} ".format(secret_word))
+            print("*********************************************************")
+            print("      GAME OVER!!! YOU'VE HANGED HIM, SHAME ON YOU!       THE SECRET WORD WAS: {} ".format(secret_word))
+            print("*********************************************************")
             print(hang_board[6])
             break
 
         if is_winner is 'winner':
-            print("***** GOOD JOB!!! YOU SAVED HIM FROM THE GALLOWS! ***** The secret word was {} ".format(secret_word))
+            print("*******************************************************")
+            print("      GOOD JOB!!! YOU SAVED HIM FROM THE GALLOWS!       THE SECRET WORD WAS: {} ".format(secret_word))
+            print("*******************************************************")
             break
 
 main()
